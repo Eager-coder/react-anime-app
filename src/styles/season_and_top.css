@@ -1,0 +1,126 @@
+* {
+  outline: none;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+.trending, .top {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 50px;
+  margin: auto;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+.trending h1, .top h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.trending .next-btn, .trending .prev-btn, .top .next-btn, .top .prev-btn {
+  cursor: pointer;
+  width: 40px;
+  padding: 10px;
+  background-color: #4c5264;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.trending .next-btn, .top .next-btn {
+  right: 0;
+}
+
+.trending .prev-btn, .top .prev-btn {
+  left: 0;
+}
+
+.trending .trending-container, .trending .top-container, .top .trending-container, .top .top-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.trending .trending-container .trending-anime, .trending .trending-container .top-anime, .trending .top-container .trending-anime, .trending .top-container .top-anime, .top .trending-container .trending-anime, .top .trending-container .top-anime, .top .top-container .trending-anime, .top .top-container .top-anime {
+  margin-right: 15px;
+  width: 200px;
+}
+
+.trending .trending-container .trending-anime img, .trending .trending-container .top-anime img, .trending .top-container .trending-anime img, .trending .top-container .top-anime img, .top .trending-container .trending-anime img, .top .trending-container .top-anime img, .top .top-container .trending-anime img, .top .top-container .top-anime img {
+  border-radius: 7px;
+  width: 100%;
+}
+
+.trending .trending-container .trending-anime p, .trending .trending-container .top-anime p, .trending .top-container .trending-anime p, .trending .top-container .top-anime p, .top .trending-container .trending-anime p, .top .trending-container .top-anime p, .top .top-container .trending-anime p, .top .top-container .top-anime p {
+  color: #4c5264;
+  height: 80px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .trending, .top {
+    padding: 0 20px;
+  }
+  .trending h1, .top h1 {
+    font-size: 2rem;
+  }
+  .trending .next-btn, .trending .prev-btn, .top .next-btn, .top .prev-btn {
+    width: 40px;
+    height: 30px;
+    padding: 6px;
+    background-color: #4c5264;
+    border-radius: 60px;
+    position: absolute;
+    top: 5%;
+  }
+  .trending .next-btn, .top .next-btn {
+    right: 50px;
+  }
+  .trending .prev-btn, .top .prev-btn {
+    left: unset;
+    right: 100px;
+  }
+  .trending .trending-container .trending-anime, .trending .trending-container .top-anime, .trending .top-container .trending-anime, .trending .top-container .top-anime, .top .trending-container .trending-anime, .top .trending-container .top-anime, .top .top-container .trending-anime, .top .top-container .top-anime {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .trending, .top {
+    margin-bottom: 40px;
+  }
+  .trending h1, .top h1 {
+    font-size: 1.5rem;
+  }
+  .trending .next-btn, .trending .prev-btn, .top .next-btn, .top .prev-btn {
+    width: 35px;
+    height: 27px;
+    top: 4%;
+  }
+  .trending .next-btn, .top .next-btn {
+    right: 20px;
+  }
+  .trending .prev-btn, .top .prev-btn {
+    right: 60px;
+  }
+  .trending .trending-container, .trending .top-container, .top .trending-container, .top .top-container {
+    height: 250px;
+    overflow-y: hidden;
+  }
+  .trending .trending-container .trending-anime, .trending .trending-container .top-anime, .trending .top-container .trending-anime, .trending .top-container .top-anime, .top .trending-container .trending-anime, .top .trending-container .top-anime, .top .top-container .trending-anime, .top .top-container .top-anime {
+    width: 120px;
+  }
+  .trending .trending-container .trending-anime p, .trending .trending-container .top-anime p, .trending .top-container .trending-anime p, .trending .top-container .top-anime p, .top .trending-container .trending-anime p, .top .trending-container .top-anime p, .top .top-container .trending-anime p, .top .top-container .top-anime p {
+    font-size: 0.85rem;
+  }
+}
+/*# sourceMappingURL=season_and_top.css.map */

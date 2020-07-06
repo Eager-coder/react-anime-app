@@ -1,0 +1,39 @@
+nav {
+    width: 100%;
+    background-color: #4c5264;
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+        width: 100%;
+        max-width: 1200px;
+        height: 4rem;
+        margin: auto;
+        span {
+            cursor: pointer;
+            border-radius: 7px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            &::after {
+                content: 'Find';
+                color:  #70c7a7;
+            }
+        }
+        
+        
+    }
+    
+}
+@media screen and (max-width: 768px){
+    nav {
+        .nav-container {
+            height: 3.5rem;
+            padding: 0 20px;
+            span {
+                font-size: 2rem;
+            }   
+        }   
+    } 
+}

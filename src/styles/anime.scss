@@ -1,0 +1,194 @@
+.anime {
+    padding: 80px 0;
+    background-color: #edf1f5;
+    .flex-container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 50px;
+        margin: auto;
+        display: flex;
+        .left {
+            width: 35%;
+            img {
+                width: 100%;
+                border-radius: 5px;
+                box-shadow:  2px 2px 10px rgba(0,0,0,0.5);
+            }
+            .details {
+                margin: 20px 0;
+                li {
+                    width: max-content;
+                    margin: 10px 0;
+                    border: 1.5px solid rgb(112, 112, 112);
+                    padding: 2px 5px;
+                    border-radius: 15px;
+                }
+            }
+        }
+        .right {
+            width: 60%;
+            margin-left: 50px;
+            margin-top: 0px;
+            h2 {
+                font-size: 3rem;
+                font-weight: 900;
+                margin-bottom: 10px;
+                padding: 0;
+            }
+            p {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+            .mobile-img {
+                display: none;
+            }
+            .trailer {
+                margin: 20px 0;
+            }
+            .genres {
+                display: flex;
+                flex-wrap: wrap;
+                li {
+                    border: 2px black solid;
+                    background-color: white;
+                    border-radius: 15px;
+                    margin: 5px 10px;
+                    padding: 0 5px
+                }
+            }
+        }
+    }
+    .characters {
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 50px;
+        margin: 20px auto;
+        h2 {
+            margin: 20px 0;
+            padding: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        .characters-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr) ;
+            column-gap: 20px;
+            row-gap: 20px;
+            .character-box {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .anime {
+        padding: 40px 0;
+        .flex-container {
+            flex-direction: column-reverse;                
+            padding: 0 20px;
+            .left {
+                width: 100%;
+                .details {
+                    margin: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    li {
+                        margin-left: 15px;
+                    }
+                }
+                .desktop-img {
+                    display: none;
+                }
+            }
+            .right {
+                width: 100%;
+                margin: 0;
+                h2 {
+                    font-size: 2rem;
+                }
+                .img-and-desc {
+                    display: flex;
+                    margin-bottom: 20px;
+                    p {
+                        font-size: 1rem;
+                        width: 70%;
+                    }
+                    .mobile-img-cont {
+                        width: 30%;
+                        height: auto;
+                        margin-right: 15px;
+                        .mobile-img{
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .characters {
+            padding: 0 20px;
+            h2 {
+                margin: 20px 0;
+                font-size: 1.8rem;
+                font-weight: 600;
+            }
+            .characters-container {
+                width: 100%;
+                grid-template-columns: repeat(4, 1fr);
+                column-gap: 15px;
+                row-gap: 15px;
+                .character-box {
+                    margin: 0px;
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .anime {
+        .flex-container {
+            .left {
+                .details {
+                    li {
+                        margin: 5px 0;
+                        margin-left: 10px;
+                        font-size: 0.85rem;
+                    }
+                }
+            }
+            .right {
+                h2 {
+                    font-size: 1.8rem;
+                }
+                .img-and-desc {
+                    display: block;
+                    p {
+                        width: 100%;
+                        margin-top: 20px;
+                    }
+                    .mobile-img-cont {
+                        width: 100%;
+                        margin-right: 0px;
+                    }
+                }
+                
+            }
+        }
+        .characters {
+            .characters-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+}
