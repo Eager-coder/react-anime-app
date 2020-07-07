@@ -1,0 +1,139 @@
+.lists {
+  max-width: 1200px;
+  padding: 50px;
+  width: 100%;
+  margin: auto;
+}
+
+.lists h4 {
+  font-size: 1.8rem;
+  color: #4c5264;
+  margin-bottom: 10px;
+}
+
+.flex-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.flex-box .list-container {
+  width: unset;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  position: relative;
+}
+
+.flex-box .list-container .selected {
+  cursor: pointer;
+  width: 22vw;
+  max-width: 200px;
+  height: 30px;
+  background-color: white;
+  border-radius: 7px;
+  -webkit-box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  padding: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.flex-box .list-container .selected span {
+  font-size: 0.9rem;
+  color: #979797;
+  padding: 8px 0;
+}
+
+.flex-box .list-container .selected img {
+  width: 15px;
+  height: 15px;
+  -webkit-filter: invert(0.7);
+          filter: invert(0.7);
+  margin: 8px 0;
+}
+
+.flex-box .list-container .selected .cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.flex-box .list-container .box {
+  width: 22vw;
+  max-width: 200px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  max-height: 300px;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 7px;
+  -webkit-box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  display: none;
+  z-index: 2;
+}
+
+.flex-box .list-container .box li {
+  font-size: 0.9rem;
+  color: #3f3f3f;
+  padding: 5px;
+  border-radius: 4px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.flex-box .list-container .box li:hover {
+  background-color: #e0e0e0;
+  color: #43b375;
+}
+
+.flex-box .list-container .list-active {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .lists {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .lists {
+    padding: 0 20px;
+  }
+  .lists h4 {
+    font-size: 1.4rem;
+  }
+  .flex-box {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .flex-box .list-container .selected {
+    width: 40vw;
+    padding: 0 10px;
+  }
+  .flex-box .list-container .selected span {
+    font-size: 0.85rem;
+  }
+  .flex-box .list-container .box {
+    width: 40vw;
+  }
+}
+/*# sourceMappingURL=select_list.css.map */

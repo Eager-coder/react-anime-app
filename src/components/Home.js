@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Seacrh from './Search'
 import Season from './Season'
 import Top from './Top'
+import SelectForm from './SelectForm'
+import '../styles/home.css'
+
 export default function Home({match}) {
     const [seasonAnimes, setSeasonAnimes] = useState([])
     const [topAnimes, setTopAnimes] = useState([])
@@ -11,10 +14,9 @@ export default function Home({match}) {
             .then(res => res.json())
             .then(data => setSeasonAnimes(data.anime))
 
-        const topURL = 'https://api.jikan.moe/v3/top/anime/1/'
-        fetch('https://api.allorigins.win/get?url=' + topURL)
+        fetch('https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/top/anime/1/' )
             .then(res => res.json())
-            .then(data => setTopAnimes(JSON.parse(data.contents).top))
+            .then(data => setTopAnimes(data.top))
     }, [])
 
     return (
@@ -24,7 +26,11 @@ export default function Home({match}) {
                     <h1>Discover the world of anime using the world's largest anime database </h1>
                 </div>
             </div>
-            <Seacrh />
+            <div className="search-methods">
+                <Seacrh />
+                <SelectForm />
+            </div>
+            
             <Season animeList={seasonAnimes}/>
             <Top animeList={topAnimes}/>
         </main>

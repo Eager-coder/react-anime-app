@@ -11,7 +11,7 @@ export default function Search() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        history.push(`/search/${animeName}`)
+        history.push(`/search/anime/${animeName}`)
     }
 
     return (

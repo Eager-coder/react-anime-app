@@ -1,9 +1,8 @@
 .search-box {
     width: 100%;
     max-width: 1200px;
-    margin: auto;
     padding: 0 50px;
-    margin-bottom: 50px;
+    margin: 50px auto;
     h4 {
         font-size: 2rem;
         color: #4c5264;
@@ -16,7 +15,7 @@
         border: none;
         box-shadow: 2px 3px 10px  rgba(0, 0, 0, 0.1);
         border-radius: 7px;
-
+        background-color: white;
         img {
             width: 23px;
             position: absolute;
@@ -42,7 +41,7 @@
 @media screen and (max-width: 768px){
     .search-box {
         padding: 20px;
-        margin-bottom: 30px;
+        margin: 20px 0;
         h4 {
             font-size: 1.7rem;
         }
@@ -52,6 +51,5 @@
                 font-size: 1rem;
             }
         }
-        
     }
 }

@@ -1,0 +1,119 @@
+.lists {
+    max-width: 1200px;
+    padding: 50px;
+    width: 100%;
+    margin: auto;
+    h4 {
+        font-size: 1.8rem;
+        color: #4c5264;
+        margin-bottom: 10px;
+    }
+}
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .list-container {
+        width: unset;
+        height: max-content;
+        position: relative;
+        .selected {
+            cursor: pointer;
+            width: 22vw;
+            max-width: 200px;
+            height: 30px;
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 2px 3px 10px  rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            span {
+                font-size: 0.9rem;
+                color: #979797;
+                padding: 8px 0;
+            }
+            img {
+                width: 15px;
+                height: 15px;
+                filter: invert(0.7);
+                margin: 8px 0;
+            }
+            .cover {
+                position: absolute;
+                top: 0; bottom: 0; left: 0; right: 0;
+                z-index: 1;
+            }
+        }
+        .box {
+            width: 22vw;
+            max-width: 200px;
+            height: max-content;
+            max-height: 300px;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 2px 3px 10px  rgba(0, 0, 0, 0.1);
+            position: absolute;
+            display: none;
+            z-index: 2;
+            li {
+                font-size: 0.9rem;
+                color: rgb(63, 63, 63);
+                padding: 5px;
+                border-radius: 4px;
+                transition: 0.2s;
+                &:hover {
+                    background-color: #e0e0e0;
+                    color: #43b375;
+                }
+            }
+        }
+        .list-active {
+            display: block;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .lists {
+        padding: 0 20px;
+    }
+    // .flex-box {
+    //     .list-container {
+    //         .selected {
+
+    //          } 
+    //      }
+    // }
+    
+}
+@media screen and (max-width: 480px) {
+    .lists {
+        padding: 0 20px;
+        h4 {
+            font-size: 1.4rem;
+        }
+    }
+    .flex-box {
+        flex-wrap: wrap;
+        .list-container {
+            .selected {
+                width: 40vw;
+                padding: 0 10px;
+                span {
+                    font-size: 0.85rem;
+                }
+                
+             } 
+             .box {
+                width: 40vw;
+                // padding: 0 10px;
+            }
+         }
+    }
+    
+}
+

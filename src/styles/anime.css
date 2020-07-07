@@ -1,5 +1,5 @@
 .anime {
-  padding: 80px 0;
+  padding: 50px 0;
   background-color: #edf1f5;
 }
 
@@ -26,16 +26,29 @@
 
 .anime .flex-container .left .details {
   margin: 20px 0;
+  padding: 5px 20px;
+  border-radius: 3px;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .anime .flex-container .left .details li {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 10px 0;
-  border: 1.5px solid #707070;
-  padding: 2px 5px;
-  border-radius: 15px;
+  color: black;
+  font-size: 1.1rem;
+}
+
+.anime .flex-container .left .details li span {
+  color: #4c5264;
+  font-size: 1rem;
 }
 
 .anime .flex-container .right {
@@ -73,11 +86,12 @@
 }
 
 .anime .flex-container .right .genres li {
-  border: 2px black solid;
+  border: 1px rgba(0, 0, 0, 0.4) solid;
+  color: #4c5264;
   background-color: white;
-  border-radius: 15px;
+  border-radius: 7px;
   margin: 5px 10px;
-  padding: 0 5px;
+  padding: 2px 5px;
 }
 
 .anime .characters {
@@ -115,7 +129,7 @@
 
 @media screen and (max-width: 768px) {
   .anime {
-    padding: 40px 0;
+    padding: 20px 0;
   }
   .anime .flex-container {
     -webkit-box-orient: vertical;
@@ -129,18 +143,17 @@
   }
   .anime .flex-container .left .details {
     margin: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    padding: 10px 20px;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   .anime .flex-container .left .details li {
-    margin-left: 15px;
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+  .anime .flex-container .left .details li span {
+    font-size: 0.9rem;
   }
   .anime .flex-container .left .desktop-img {
     display: none;
@@ -156,7 +169,6 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 20px;
   }
   .anime .flex-container .right .img-and-desc p {
     font-size: 1rem;
@@ -197,9 +209,16 @@
 }
 
 @media screen and (max-width: 480px) {
+  .anime {
+    padding: 0;
+  }
+  .anime .flex-container .left .details {
+    padding: 5px 10px;
+  }
   .anime .flex-container .left .details li {
-    margin: 5px 0;
-    margin-left: 10px;
+    font-size: 0.9rem;
+  }
+  .anime .flex-container .left .details li span {
     font-size: 0.85rem;
   }
   .anime .flex-container .right h2 {
@@ -207,14 +226,24 @@
   }
   .anime .flex-container .right .img-and-desc {
     display: block;
+    margin-bottom: 10px;
   }
   .anime .flex-container .right .img-and-desc p {
     width: 100%;
+    margin-bottom: 0;
     margin-top: 20px;
   }
   .anime .flex-container .right .img-and-desc .mobile-img-cont {
     width: 100%;
     margin-right: 0px;
+  }
+  .anime .flex-container .right iframe {
+    height: 220px;
+  }
+  .anime .flex-container .right .genres li {
+    font-size: 0.9rem;
+    margin: 5px;
+    padding: 2px 5px;
   }
   .anime .characters .characters-container {
     -ms-grid-columns: (1fr)[3];

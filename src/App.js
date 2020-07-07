@@ -4,23 +4,24 @@ import './App.css';
 import Animes from './components/Animes'
 import Nav from './components/Nav';
 import Anime from './components/Anime'
-import Season from './components/Season'
 import Home from './components/Home'
 import ErrorBoundary from './components/ErrorBoundary'
 function App() {
     return (
         <Router>
             <div className="App">
-                    <Nav />
-                        <ErrorBoundary>
+                <Nav />
+                <ErrorBoundary>
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route exact path="/season" component={Season}/>
-                            <Route  path="/anime/:id" component={Anime}/>
-                        <Route exact path="/search/:name" component={Animes} />
+                        <Route exact path="/anime/:id" component={Anime}/>
+                        <Route exact path="/search/anime/:name" component={Animes} />
+                        <Route exact path="/search/genres/:genre/:id" component={Animes} />
+                        <Route exact path="/search/seasons/:season/:id" component={Animes}/>
+                        <Route exact path="/search/ratings/:rating/:id" component={Animes}/>
+                        <Route exact path="/search/types/:type/:id" component={Animes}/>
                     </Switch>
-                        </ErrorBoundary>
-                    
+                </ErrorBoundary>
             </div>
         </Router>
     );

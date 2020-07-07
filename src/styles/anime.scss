@@ -1,5 +1,5 @@
 .anime {
-    padding: 80px 0;
+    padding: 50px 0;
     background-color: #edf1f5;
     .flex-container {
         width: 100%;
@@ -16,12 +16,21 @@
             }
             .details {
                 margin: 20px 0;
+                padding: 5px 20px;
+                border-radius: 3px;
+                background-color: white;
+                box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
                 li {
-                    width: max-content;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
                     margin: 10px 0;
-                    border: 1.5px solid rgb(112, 112, 112);
-                    padding: 2px 5px;
-                    border-radius: 15px;
+                    color: black;
+                    font-size: 1.1rem;
+                    span {
+                        color: #4c5264;
+                        font-size: 1rem;
+                    }
                 }
             }
         }
@@ -49,11 +58,12 @@
                 display: flex;
                 flex-wrap: wrap;
                 li {
-                    border: 2px black solid;
+                    border: 1px rgba(0, 0, 0, 0.4) solid;
+                    color: #4c5264;
                     background-color: white;
-                    border-radius: 15px;
+                    border-radius: 7px;
                     margin: 5px 10px;
-                    padding: 0 5px
+                    padding: 2px 5px
                 }
             }
         }
@@ -87,7 +97,7 @@
 
 @media screen and (max-width: 768px){
     .anime {
-        padding: 40px 0;
+        padding: 20px 0;
         .flex-container {
             flex-direction: column-reverse;                
             padding: 0 20px;
@@ -95,11 +105,15 @@
                 width: 100%;
                 .details {
                     margin: 0;
-                    display: flex;
-                    flex-wrap: wrap;
-                    flex-direction: row;
+                    padding: 10px 20px;
+                    border-radius: 0;
+                    box-shadow: none;
                     li {
-                        margin-left: 15px;
+                        margin: 5px 0;
+                        font-size: 1rem;
+                        span {
+                            font-size: 0.9rem;
+                        }
                     }
                 }
                 .desktop-img {
@@ -114,7 +128,6 @@
                 }
                 .img-and-desc {
                     display: flex;
-                    margin-bottom: 20px;
                     p {
                         font-size: 1rem;
                         width: 70%;
@@ -157,13 +170,17 @@
 
 @media screen and (max-width: 480px){
     .anime {
+        padding: 0;
         .flex-container {
             .left {
                 .details {
+                    padding: 5px 10px;
                     li {
-                        margin: 5px 0;
-                        margin-left: 10px;
-                        font-size: 0.85rem;
+                        font-size: 0.9rem;
+                        span {
+                            font-size: 0.85rem;
+                        }
+                        
                     }
                 }
             }
@@ -173,13 +190,26 @@
                 }
                 .img-and-desc {
                     display: block;
+                    margin-bottom: 10px;
                     p {
                         width: 100%;
+                        margin-bottom: 0;
                         margin-top: 20px;
                     }
                     .mobile-img-cont {
                         width: 100%;
                         margin-right: 0px;
+                    }
+                    
+                }
+                iframe {
+                    height: 220px;
+                }
+                .genres {
+                    li {
+                        font-size: 0.9rem;
+                        margin: 5px;
+                        padding: 2px 5px;
                     }
                 }
                 

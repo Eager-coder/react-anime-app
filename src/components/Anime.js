@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
 import '../styles/anime.css'
 export default function Anime({ match }) {
     const [data, setData] = useState('')
@@ -7,18 +8,15 @@ export default function Anime({ match }) {
     useEffect(() => fetchData(match.params.id), [match.params.id])
 
     const fetchData = (id) => {
-        let dataURL = encodeURIComponent(`https://api.jikan.moe/v3/anime/${id}/`)
-        let charURL = encodeURIComponent(`https://api.jikan.moe/v3/anime/${id}/characters_staff`)
-
-        fetch(`https://api.allorigins.win/get?url=${dataURL}`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/anime/${id}/`)
             .then(res => res.json())
-            .then(data => setData(JSON.parse(data.contents)))
+            .then(data => setData(data))
             .catch(err => console.log(err))
 
-        fetch(`https://api.allorigins.win/get?url=${charURL}`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/anime/${id}/characters_staff`)
             .then(res => res.json())
             .then(data => {
-                const characters = JSON.parse(data.contents)
+                const characters = data
                 const newArray = characters.characters.filter(item => item.role === 'Main' && item.image_url !== 'undefined')
                 setCharacters(newArray)
             }).catch(err => console.log(err))    
@@ -31,12 +29,12 @@ export default function Anime({ match }) {
                     <div className="left">
                         <img className="desktop-img" src={data.image_url} alt=""/>
                             <ul className="details">
-                                <li>Year: {data.aired.from.slice(0, 4)}</li>
-                                <li>Format: {data.type}</li>
-                                <li>{data.episodes ? 'Episodes: '+ data.episodes : ''}</li>
-                                <li>Duration: {data.duration.replace('per ep', '')}</li>
-                                <li>Status: {data.status}</li>
-                                <li>Score: {data.score}/10</li>
+                                <li>Year <span>{data.aired.from.slice(0, 4)}</span></li>
+                                <li>Format <span>{data.type}</span></li>
+                                {data.episodes ? <li> Episodes <span>{data.episodes}</span></li> : '' }
+                                <li>Duration <span>{data.duration.replace('per ep', '')}</span></li>
+                                <li>Status <span>{data.status}</span></li>
+                                {data.score ? <li>Score <span>{data.score}/10</span></li> : ''}
                             </ul>
                     </div>
                     <div className="right">
@@ -50,7 +48,10 @@ export default function Anime({ match }) {
                         <ul className="genres">
                             {data.genres.map(obj => {
                                 return (
-                                    <li key={obj.name}>{obj.name}</li>
+                                    <Link key={'key' + obj.name} to={`/search/genres/${obj.name}/${obj.mal_id}`}>
+                                        <li key={obj.name}>{obj.name}</li>
+                                    </Link>
+                                    
                                 )
                             })}
                         </ul>
