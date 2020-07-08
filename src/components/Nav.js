@@ -8,7 +8,9 @@ export default function Nav() {
                 <Link to='/'>
                     <span>Ani</span>
                 </Link>
-                
+                <Link to='/favorites'>
+                    <div>My list</div>
+                </Link>
             </div>
         </nav>
     )

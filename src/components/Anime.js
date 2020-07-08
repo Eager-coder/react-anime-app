@@ -2,15 +2,23 @@ import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import '../styles/anime.css'
 export default function Anime({ match }) {
-    const [data, setData] = useState('')
+    const [animeData, setData] = useState('')
     const [charactersArray, setCharacters] = useState([])
-
+    const [isAdded, setAdded] = useState(false)
     useEffect(() => fetchData(match.params.id), [match.params.id])
 
-    const fetchData = (id) => {
+    function checkForAdded(obj) {
+        const storedList = JSON.parse(localStorage.getItem('added'))
+        if (storedList.length) setAdded(storedList.some(item => item.id === obj.mal_id))
+    }
+
+    function fetchData(id) {
         fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/anime/${id}/`)
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => {
+                setData(data)
+                checkForAdded(data)
+            })
             .catch(err => console.log(err))
 
         fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/anime/${id}/characters_staff`)
@@ -21,32 +29,51 @@ export default function Anime({ match }) {
                 setCharacters(newArray)
             }).catch(err => console.log(err))    
     }
+    
+    function AddtoList() {
+        const newAdded = {
+            id: animeData.mal_id,
+            image: animeData.image_url,
+            title: animeData.title,
+            link: '/anime/' + animeData.mal_id
+        }
+        const list = JSON.parse(localStorage.getItem('added')) || []
+        const isNonexistent = list.every(item => item.id !== newAdded.id)
+        if (isNonexistent) {
+            list.push(newAdded)
+            localStorage.setItem('added', JSON.stringify(list))
+            setAdded(true)
+        }
+    }
+    
+    
 
     return (
-            typeof data === 'object' && data.aired !== 'undefined'? 
+            typeof animeData === 'object' && animeData.aired !== 'undefined'? 
             <div className="anime">
                 <div className="flex-container">
                     <div className="left">
-                        <img className="desktop-img" src={data.image_url} alt=""/>
-                            <ul className="details">
-                                <li>Year <span>{data.aired.from.slice(0, 4)}</span></li>
-                                <li>Format <span>{data.type}</span></li>
-                                {data.episodes ? <li> Episodes <span>{data.episodes}</span></li> : '' }
-                                <li>Duration <span>{data.duration.replace('per ep', '')}</span></li>
-                                <li>Status <span>{data.status}</span></li>
-                                {data.score ? <li>Score <span>{data.score}/10</span></li> : ''}
-                            </ul>
+                        <img className="desktop-img" src={animeData.image_url} alt=""/>
+                        <ul className="details">
+                            <li>Year <span>{animeData.aired.from.slice(0, 4)}</span></li>
+                            <li>Format <span>{animeData.type}</span></li>
+                            {animeData.episodes ? <li> Episodes <span>{animeData.episodes}</span></li> : '' }
+                            <li>Duration <span>{animeData.duration.replace('per ep', '')}</span></li>
+                            <li>Status <span>{animeData.status}</span></li>
+                            {animeData.score ? <li>Score <span>{animeData.score}/10</span></li> : ''}
+                        </ul>
                     </div>
                     <div className="right">
-                        <h2>{data.title}</h2>
+                        <h2>{animeData.title}</h2>
                         <div className="img-and-desc">
                             <div className="mobile-img-cont">
-                                <img className="mobile-img" src={data.image_url} alt=""/>
+                                <img className="mobile-img" src={animeData.image_url} alt=""/>
                             </div>
-                            <p>{data.synopsis}</p>
+                            <p>{animeData.synopsis}</p>
                         </div>
+                        <button className="add-btn" onClick={AddtoList}>{isAdded ? 'Added' : 'Add to List'}</button> 
                         <ul className="genres">
-                            {data.genres.map(obj => {
+                            {animeData.genres.map(obj => {
                                 return (
                                     <Link key={'key' + obj.name} to={`/search/genres/${obj.name}/${obj.mal_id}`}>
                                         <li key={obj.name}>{obj.name}</li>
@@ -55,14 +82,14 @@ export default function Anime({ match }) {
                                 )
                             })}
                         </ul>
-                        {data.trailer_url ? 
+                        {animeData.trailer_url ? 
                             <iframe 
                                 allowFullScreen 
                                 className="trailer" 
-                                title={data.title} 
+                                title={animeData.title} 
                                 width="100%" 
                                 height="350px" 
-                                src={data.trailer_url.replace('autoplay=1', 'autoplay=0')}>
+                                src={animeData.trailer_url.replace('autoplay=1', 'autoplay=0')}>
                             </iframe> 
                         : ''}
                     </div>

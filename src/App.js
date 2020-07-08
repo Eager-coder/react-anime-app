@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import './App.css';
+import './styles/App.css';
 import Animes from './components/Animes'
 import Nav from './components/Nav';
 import Anime from './components/Anime'
 import Home from './components/Home'
 import ErrorBoundary from './components/ErrorBoundary'
+import Favorites from './components/Favorites'
 function App() {
     return (
         <Router>
@@ -20,6 +21,7 @@ function App() {
                         <Route exact path="/search/seasons/:season/:id" component={Animes}/>
                         <Route exact path="/search/ratings/:rating/:id" component={Animes}/>
                         <Route exact path="/search/types/:type/:id" component={Animes}/>
+                        <Route exact path="/favorites" component={Favorites}/>
                     </Switch>
                 </ErrorBoundary>
             </div>
