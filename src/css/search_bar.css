@@ -57,5 +57,9 @@
   }
   .search-box .input-container input {
     font-size: 1rem;
+    padding-left: 40px;
+  }
+  .search-box .input-container img {
+    left: 10px;
   }
 }
