@@ -1,0 +1,86 @@
+.favorites {
+  margin: 0 auto;
+  padding: 50px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.favorites h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.fav-anime-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  row-gap: 20px;
+}
+
+.fav-anime-list .fav-anime {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.fav-anime-list img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.fav-anime-list p {
+  font-size: 1rem;
+  color: #4c5264;
+}
+
+.fav-anime-list button {
+  cursor: pointer;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border: none;
+  border-radius: 4px;
+  background-color: #c74d4d;
+  color: white;
+  margin-top: 5px;
+  padding: 3px 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .favorites {
+    padding: 50px 20px;
+  }
+  .fav-anime-list {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+  .fav-anime-list .fav-anime p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .favorites {
+    padding: 20px;
+  }
+  .favorites h1 {
+    font-size: 1.5rem;
+  }
+  .fav-anime-list {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+  .fav-anime-list .fav-anime p {
+    font-size: 0.8rem;
+  }
+}

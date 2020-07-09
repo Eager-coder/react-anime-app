@@ -71,6 +71,7 @@
 
 .anime .flex-container .right .mobile-img {
   display: none;
+  border-radius: 7px;
 }
 
 .anime .flex-container .right .trailer {
@@ -83,6 +84,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .anime .flex-container .right .genres li {
@@ -90,8 +92,30 @@
   color: #4c5264;
   background-color: white;
   border-radius: 7px;
-  margin: 5px 10px;
+  margin: 5px 0;
+  margin-right: 10px;
   padding: 2px 5px;
+}
+
+.anime .flex-container .right .add-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #70c7a7;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 3px 5px;
+  color: whitesmoke;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.anime .flex-container .right .add-btn:hover {
+  background-color: #5d9e86;
+  color: white;
 }
 
 .anime .characters {
@@ -169,6 +193,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin-bottom: 10px;
   }
   .anime .flex-container .right .img-and-desc p {
     font-size: 1rem;
@@ -182,6 +207,9 @@
   .anime .flex-container .right .img-and-desc .mobile-img-cont .mobile-img {
     display: block;
     width: 100%;
+  }
+  .anime .flex-container .right .genres {
+    margin-top: 5px;
   }
   .anime .characters {
     padding: 0 20px;
@@ -242,7 +270,7 @@
   }
   .anime .flex-container .right .genres li {
     font-size: 0.9rem;
-    margin: 5px;
+    margin: 5px 5px 5px 0;
     padding: 2px 5px;
   }
   .anime .characters .characters-container {
@@ -250,4 +278,3 @@
         grid-template-columns: repeat(3, 1fr);
   }
 }
-/*# sourceMappingURL=anime.css.map */

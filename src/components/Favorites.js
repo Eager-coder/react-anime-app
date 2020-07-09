@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import '../css/favorites.css'
 function Favorites() {
     const storage = JSON.parse(localStorage.getItem('added'))
     const [favList, setList] = useState(storage || [])
@@ -9,20 +10,25 @@ function Favorites() {
         localStorage.setItem('added', JSON.stringify(newList))
     }
     return (
-        <div>
+        <section className="favorites">
             <h1>Your list</h1>
-            <ul>
+            <ul className="fav-anime-list">
                 {favList.map(item => (
                     <div key={item.id} className="fav-anime">
                         <Link to={item.link}>
                             <img src={item.image} alt=""/>
                             <p>{item.title}</p>
                         </Link>
+                        {/* <div> */}
+                            <Link>
+                            </Link>    
                             <button id={item.id} onClick={handleClick}>Remove</button>
+                        {/* </div>   */}
+                        
                     </div>
                 ))}
             </ul>
-        </div>
+        </section>
     )
 }
 

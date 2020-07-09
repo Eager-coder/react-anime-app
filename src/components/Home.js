@@ -3,8 +3,8 @@ import Seacrh from './Search'
 import Season from './Season'
 import Top from './Top'
 import SelectForm from './SelectForm'
-import '../styles/home.css'
-
+import '../css/home.css'
+import jikanjs from 'jikanjs'
 export default function Home({match}) {
     const [seasonAnimes, setSeasonAnimes] = useState([])
     const [topAnimes, setTopAnimes] = useState([])
@@ -14,9 +14,8 @@ export default function Home({match}) {
             .then(res => res.json())
             .then(data => setSeasonAnimes(data.anime))
 
-        fetch('https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/top/anime/1/' )
-            .then(res => res.json())
-            .then(data => setTopAnimes(data.top))
+        jikanjs.raw(['top', 'anime'])
+            .then(res =>setTopAnimes(res.top))
     }, [])
 
     return (

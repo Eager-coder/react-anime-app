@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import './styles/App.css';
+import './css/App.css';
 import Animes from './components/Animes'
 import Nav from './components/Nav';
 import Anime from './components/Anime'

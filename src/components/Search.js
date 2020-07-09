@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import '../styles/search_bar.css'
+import '../css/search_bar.css'
 export default function Search() {
     const history = useHistory()
     const [animeName, setAnimeName] = useState('')

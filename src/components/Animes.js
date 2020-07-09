@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import Search from './Search';
-import '../styles/search_results.css'
+import '../css/search_results.css'
+import jikanjs from 'jikanjs' 
+
 function Animes({ match }) {
     const [animeList, setAnimeList] = useState('')
     const [searched, setSearched] = useState('')
@@ -9,37 +11,36 @@ function Animes({ match }) {
     useEffect(() => {
         if (match.params.name) {
             setSearched('Results for: ' + match.params.name)
-            fetch(`https://api.jikan.moe/v3/search/anime?q=${match.params.name}&page=1`)
-                .then(res => res.json())
-                .then(data => setAnimeList(data.results))
+            jikanjs.search('anime', match.params.name)
+                .then(res => setAnimeList(res.results))
                 .catch(err => console.log(err));
         }
+
         if (match.params.genre) {
             setSearched('Genre: ' + match.params.genre)
-            fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/genre/anime/${match.params.id}/`)
-                .then(res => res.json())
-                .then(data => setAnimeList(data.anime))
-                .catch(err => console.log(err));
+            jikanjs.loadGenre('anime', match.params.id)
+                .then(res => setAnimeList(res.anime))
+                .catch(err => console.log(err))
         }
+
         if (match.params.season) {
             setSearched('Season: ' + match.params.season)
-            fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/season/2020/${match.params.id}/`)
-                .then(res => res.json())
-                .then(data => setAnimeList(data.anime))
-                .catch(err => console.log(err));
+            jikanjs.loadSeason(2020, match.params.id)
+                .then(res => setAnimeList(res.anime))
+                .catch(err => console.log(err))
         }
+
         if (match.params.rating) {
             setSearched('Rating: ' + match.params.rating)
-            fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/search/anime?rated=${match.params.id}`)
-                .then(res => res.json())
-                .then(data => setAnimeList(data.results))
-                .catch(err => console.log(err));
+            jikanjs.raw(['search', 'anime'], {rated: match.params.id} )
+                .then(res => setAnimeList(res.results))
+                .catch(err => console.log(err))
         }
+
         if (match.params.type) {
             setSearched('Type: ' + match.params.type)
-            fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/search/anime?type=${match.params.id}`)
-                .then(res => res.json())
-                .then(data => setAnimeList(data.results))
+            jikanjs.raw(['search', 'anime'], {type: match.params.id})
+                .then(res => setAnimeList(res.results))
                 .catch(err => console.log(err));
         }
     }, [])

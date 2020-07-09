@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/select_list.css'
+import '../css/select_list.css'
 import {Link} from 'react-router-dom'
 
 import {selectLists} from './SelectList'

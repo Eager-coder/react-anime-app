@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/season_and_top.css'
+import '../css/season_and_top.css'
 export default function Top({ animeList }) {
     return (
         <section key="top" className="top">

@@ -33,6 +33,13 @@ nav .nav-container span::after {
   color: #70c7a7;
 }
 
+nav .nav-container div {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  border-bottom: 2px #70c7a7 solid;
+}
+
 @media screen and (max-width: 768px) {
   nav .nav-container {
     height: 3.5rem;
@@ -41,5 +48,7 @@ nav .nav-container span::after {
   nav .nav-container span {
     font-size: 2rem;
   }
+  nav .nav-container div {
+    font-size: 1rem;
+  }
 }
-/*# sourceMappingURL=navbar.css.map */

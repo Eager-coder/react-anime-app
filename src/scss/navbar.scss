@@ -21,10 +21,13 @@ nav {
                 color:  #70c7a7;
             }
         }
-        
-        
+        div {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            border-bottom: 2px #70c7a7 solid;
+        }
     }
-    
 }
 @media screen and (max-width: 768px){
     nav {
@@ -34,6 +37,10 @@ nav {
             span {
                 font-size: 2rem;
             }   
+            div {
+                font-size: 1rem;
+                
+            }
         }   
     } 
 }

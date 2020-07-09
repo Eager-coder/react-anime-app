@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
-import '../styles/anime.css'
+import '../css/anime.css'
+import jikanjs from 'jikanjs'
 export default function Anime({ match }) {
     const [animeData, setData] = useState('')
     const [charactersArray, setCharacters] = useState([])
@@ -13,21 +14,21 @@ export default function Anime({ match }) {
     }
 
     function fetchData(id) {
-        fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/anime/${id}/`)
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
-                checkForAdded(data)
-            })
-            .catch(err => console.log(err))
 
-        fetch(`https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/anime/${id}/characters_staff`)
-            .then(res => res.json())
-            .then(data => {
-                const characters = data
+        jikanjs.loadAnime(id)
+            .then(res => { 
+                setData(res) 
+                checkForAdded(res)
+            })
+            .catch(err => console.error(err))
+
+        jikanjs.loadAnime(id, 'characters_staff')
+            .then(res => { 
+                const characters = res
                 const newArray = characters.characters.filter(item => item.role === 'Main' && item.image_url !== 'undefined')
                 setCharacters(newArray)
-            }).catch(err => console.log(err))    
+            })
+            .catch(err => console.error(err))
     }
     
     function AddtoList() {
@@ -45,12 +46,9 @@ export default function Anime({ match }) {
             setAdded(true)
         }
     }
-    
-    
-
     return (
-            typeof animeData === 'object' && animeData.aired !== 'undefined'? 
-            <div className="anime">
+        <div className="anime">
+            {typeof animeData === 'object' && animeData.aired !== 'undefined'? 
                 <div className="flex-container">
                     <div className="left">
                         <img className="desktop-img" src={animeData.image_url} alt=""/>
@@ -71,14 +69,13 @@ export default function Anime({ match }) {
                             </div>
                             <p>{animeData.synopsis}</p>
                         </div>
-                        <button className="add-btn" onClick={AddtoList}>{isAdded ? 'Added' : 'Add to List'}</button> 
+                        <button style={isAdded ? {backgroundColor: 'grey'} : {}} className="add-btn" onClick={AddtoList}>{isAdded ? 'Added to list' : 'Add to List'}</button> 
                         <ul className="genres">
                             {animeData.genres.map(obj => {
                                 return (
                                     <Link key={'key' + obj.name} to={`/search/genres/${obj.name}/${obj.mal_id}`}>
                                         <li key={obj.name}>{obj.name}</li>
                                     </Link>
-                                    
                                 )
                             })}
                         </ul>
@@ -94,6 +91,8 @@ export default function Anime({ match }) {
                         : ''}
                     </div>
                 </div>
+                : 'Loading...' }
+                {charactersArray.length ? 
                 <div className="characters">
                     <h2>Main characters</h2>
                     <div className="characters-container">
@@ -110,8 +109,7 @@ export default function Anime({ match }) {
                     }
                     </div>
                 </div>
-            </div>
-            
-            : 'Loading...'
+            : ''}
+        </div>
     )
 }
