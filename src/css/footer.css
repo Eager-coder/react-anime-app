@@ -1,0 +1,76 @@
+footer {
+  background-color: #4c5264;
+}
+
+footer .footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footer-container .logo {
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 600;
+  width: 230px;
+  -webkit-filter: invert(0.2);
+          filter: invert(0.2);
+}
+
+footer .footer-container .logo::after {
+  content: 'Find';
+  color: #70c7a7;
+}
+
+footer .footer-container span {
+  color: whitesmoke;
+}
+
+footer .footer-container span small {
+  color: #cf5353;
+}
+
+footer .footer-container p {
+  color: whitesmoke;
+  width: 230px;
+}
+
+@media screen and (max-width: 768px) {
+  footer .footer-container {
+    padding: 10px 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .footer-container .logo, footer .footer-container p {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  footer .footer-container .logo {
+    font-size: 2rem;
+    margin: 5px 0;
+  }
+  footer .footer-container p {
+    margin: 5px 0;
+  }
+  footer .footer-container span, footer .footer-container p {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+}

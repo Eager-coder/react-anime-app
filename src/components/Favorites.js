@@ -19,12 +19,7 @@ function Favorites() {
                             <img src={item.image} alt=""/>
                             <p>{item.title}</p>
                         </Link>
-                        {/* <div> */}
-                            <Link>
-                            </Link>    
-                            <button id={item.id} onClick={handleClick}>Remove</button>
-                        {/* </div>   */}
-                        
+                        <button id={item.id} onClick={handleClick}>Remove</button>
                     </div>
                 ))}
             </ul>

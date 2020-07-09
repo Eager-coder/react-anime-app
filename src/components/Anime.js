@@ -91,7 +91,7 @@ export default function Anime({ match }) {
                         : ''}
                     </div>
                 </div>
-                : 'Loading...' }
+                : '' }
                 {charactersArray.length ? 
                 <div className="characters">
                     <h2>Main characters</h2>

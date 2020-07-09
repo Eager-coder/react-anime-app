@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import Seacrh from './Search'
 import Season from './Season'
 import Top from './Top'
+import Footer from './Footer'
 import SelectForm from './SelectForm'
 import '../css/home.css'
 import jikanjs from 'jikanjs'
+
 export default function Home({match}) {
     const [seasonAnimes, setSeasonAnimes] = useState([])
     const [topAnimes, setTopAnimes] = useState([])
@@ -32,6 +34,7 @@ export default function Home({match}) {
             
             <Season animeList={seasonAnimes}/>
             <Top animeList={topAnimes}/>
+            <Footer/>
         </main>
     )
 }
